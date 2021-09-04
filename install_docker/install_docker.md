@@ -6,6 +6,7 @@
   - [查看`docker`版本](#查看docker版本)
   - [启动`docker`](#启动docker)
   - [验证`docker`是否正确安装](#验证docker是否正确安装)
+  - [为`docker`设置开机自启动](#为docker设置开机自启动)
 
 # 安装`docker`
 
@@ -54,3 +55,11 @@
 ```shell
 [qiqi@node01 ~]$ sudo docker run hello-world
 ```
+
+## 为`docker`设置开机自启动
+
+```shell
+[qiqi@node01 ~]$ sudo systemctl enable docker.service
+[qiqi@node01 ~]$ sudo systemctl list-unit-files | grep docker.service
+```
+
