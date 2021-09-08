@@ -19,10 +19,10 @@
 [qiqi@node01 ~]$ sudo docker pull mysql:5.7.35
 ```
 
-### 创建一个`mysql`容器,指定存放`mysql`数据、配置文件的自动数据卷并指定密码
+### 运行一个`mysql`容器,指定存放`mysql`数据、配置文件的自动数据卷并指定密码
 
 ```shell
-[qiqi@node01 ~]$ sudo docker run -dit -p 3306:3306 -e MYSQL_ROOT_PASSWORD=qiqi -v data_qiqi:/var/lib/mysql -v config_qiqi:/etc/mysql --name mysql_qiqi mysql:5.7.35
+[qiqi@node01 ~]$ sudo docker run -dit -p 3306:3306 -e MYSQL_ROOT_PASSWORD=qiqi -v mysql_data_qiqi:/var/lib/mysql -v mysql_config_qiqi:/etc/mysql --name mysql_qiqi mysql:5.7.35
 ```
 
 ## 其他相关命令
