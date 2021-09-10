@@ -10,6 +10,10 @@
   - [重新加载内核参数配置](#重新加载内核参数配置)
   - [重启`elasticsearch`容器](#重启elasticsearch容器)
   - [查看`elasticsearch`容器启动日志](#查看elasticsearch容器启动日志)
+  - [拉取`kibana`镜像](#拉取kibana镜像)
+  - [指定桥接网络运行`kibana`镜像，指定存放配置文件的数据卷](#指定桥接网络运行kibana镜像指定存放配置文件的数据卷)
+  - [修改`kibana.yml`文件](#修改kibanayml文件)
+  - [重启`kibana`容器](#重启kibana容器)
 - [可能遇到的错误](#可能遇到的错误)
 
 # 通过`docker`部署`elasticsearch`
@@ -78,6 +82,30 @@
 
 ```shell
 [qiqi@node01 ~]$ sudo docker logs -f es_qiqi
+```
+
+## 拉取`kibana`镜像
+
+```shell
+[qiqi@node01 ~]$ sudo docker pull kibana:7.14.0
+```
+
+## 指定桥接网络运行`kibana`镜像，指定存放配置文件的数据卷
+
+```shell
+[qiqi@node01 ~]$ sudo docker run -dit -p 5601:5601 --network network_qiqi -v kibana_config_qiqi:/usr/share/kibana/config --name kibana_qiqi kibana:7.14.0
+```
+
+## 修改`kibana.yml`文件
+
+```shell
+[qiqi@node01 ~]$ sudo sed -i "s/http:\/\/elasticsearch:9200/http:\/\/172.18.0.2:9200/" /var/lib/docker/volumes/kibana_config_qiqi/_data/kibana.yml
+```
+
+## 重启`kibana`容器
+
+```shell
+[qiqi@node01 ~]$ sudo docker restart kibana_qiqi
 ```
 
 # 可能遇到的错误
