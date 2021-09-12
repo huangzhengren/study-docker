@@ -29,3 +29,5 @@
 ## [安装docker-compose](./install_docker_compose)
 
 ## [docker-compose命令](./commands_of_docker_compose)
+
+## [部署portainer](./deploy_portainer)
