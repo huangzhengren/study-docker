@@ -1,2 +1,0 @@
-# study-docker
-study-docker

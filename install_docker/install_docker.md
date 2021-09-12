@@ -39,9 +39,9 @@
 ## 查看`docker`版本
 
 ```shell
-[qiqi@node01 ~]$ docker version
-[qiqi@node01 ~]$ docker -v
-[qiqi@node01 ~]$ docker --version
+[qiqi@node01 ~]$ sudo docker version
+[qiqi@node01 ~]$ sudo docker -v
+[qiqi@node01 ~]$ sudo docker --version
 ```
 
 ## 启动`docker`
